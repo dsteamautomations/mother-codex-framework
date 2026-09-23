@@ -1,6 +1,6 @@
 # Mother Codex framework
 
-Version 1.1 — 22 September 2026. Central-source edition of the v1.0 framework.
+Version 1.2 — 23 September 2026. Lean development by default.
 Intended for a small internal team with approximately two or three concurrent operators.
 This is a build contract, not evidence that an application has been implemented or tested.
 
@@ -8,14 +8,16 @@ This is a build contract, not evidence that an application has been implemented 
 
 This is the sole editable governing framework file. It combines the existing application
 rules and Mother operating procedure. The v1.1 change centralizes distribution; pilot
-improvement proposals have not been adopted automatically as new rules.
+improvement proposals have not been adopted automatically as new rules. Version 1.2
+adopts lean development and proportionate child operation as described below.
 
 - Public reading page: https://github.com/dsteamautomations/mother-codex-framework/blob/main/FRAMEWORK.md
 - Complete raw source: https://raw.githubusercontent.com/dsteamautomations/mother-codex-framework/main/FRAMEWORK.md
 - Owner edits this file in the dedicated repository. Entry files and local pointers are
   navigation only; they must not become independently maintained rule copies.
 - At a new build or resumption boundary, retrieve and read the complete source. Record
-  its URL and exact Git revision or SHA-256 in the application's existing build record.
+  its URL and exact Git revision or SHA-256 in the application's existing build record,
+  or in chat when no record is needed under Mother procedure section 3.
   Check truncation and completeness. A failed fetch is not evidence of the latest version;
   identify any known retained revision and continue only work with established instructions.
 - A newer framework guides development; it does not silently rewrite accepted inputs,
@@ -27,6 +29,45 @@ improvement proposals have not been adopted automatically as new rules.
   Keep secrets, business records, private gap logs and discussion archives out of this repo.
 - Child Codex continues to load its application's authenticated, versioned server procedures;
   it does not use this public Mother framework as its runtime instructions.
+
+## Lean development default
+
+Apply this policy throughout planning, implementation, review and completion when
+maintaining this framework, building child packages, or developing applications.
+Deliver the requested working behavior with the smallest sufficient change.
+
+- Keep scope fixed. No speculative hardening, future-proofing, enterprise architecture,
+  broad refactors or extra features unless requested or necessary for the current feature.
+- Keep planning short. Use a brief chat plan when useful. Avoid additional reports,
+  checklists and documentation unless requested or needed to operate or resume the result.
+  Reuse an existing required build record; do not turn it into a separate planning exercise.
+- Verify proportionately. Run the smallest meaningful checks for changed behavior and
+  directly affected integration. Once they pass, stop. Repeat only after relevant changes,
+  failures or new evidence; retain explicitly required checks.
+- Avoid review loops. Do not automatically launch multiple review rounds, audits,
+  parallel agents or exhaustive edge-case investigations.
+- Separate defects from improvements. Fix issues preventing the requested behavior
+  from working. Optional suggestions do not become requirements automatically.
+- Use routine judgment. Ask only for missing product decisions, necessary authorization
+  or genuine blockers. Reuse authorization already given.
+- Control expansion. Before substantially expanding the work for an unexpected issue,
+  explain the concrete issue and smallest sufficient response. Ask only if it needs
+  a new product decision or authorization; otherwise proceed within the agreed scope.
+- Use a clear stopping point. “Complete,” “full parity” and “keep working” mean satisfying
+  the requested behavior, not pursuing perfection. Stop after implementation, relevant
+  verification and requested delivery. Report actual unresolved blockers honestly.
+
+Keep essential security, data integrity and explicitly required checks proportionate
+to the actual feature. Hypothetical future risks must not drive additional work.
+These defaults qualify the breadth of the procedures below: lists describe relevant
+responsibilities, not a requirement to revisit the whole application on every change.
+New builds still need their agreed foundation; focused changes do not reopen it.
+The development cycle is: implement, verify sufficiently, deliver, and stop.
+
+Child applicability: a child explicitly assigned development work follows this policy
+within that assignment. An application operator remains an operator; lean instructions
+do not grant coding, migration or publication privileges. Include the scoped operator
+guidance in Mother procedure section 6 in generated child entry instructions.
 
 ## Starting prompt
 
@@ -73,10 +114,12 @@ for them again. Request genuinely missing inputs at the beginning. Existing code
 is evidence of behavior, not proof that its architecture or every legacy exception
 should be copied. Retain working behavior and relevant data while fixing gaps.
 
-Mother Codex establishes a reuse/adapt/build/not-applicable foundation checklist:
+For a new build or foundation conversion, Mother Codex briefly records relevant
+reuse/adapt/build/not-applicable decisions in the existing build record:
 login and protected commands; administrator API/model/Thinking page and pipeline
 mapping; the small child package/connection; run/state identification; and the
-purposeful UI required for the application. Add agreed common components without
+purposeful UI required for the application. A focused change needs only affected
+foundation decisions, not a fresh checklist. Add agreed common components without
 creating unused pages. Do not blindly scaffold a replacement login before reading
 the existing stack. Refer to actual current source when reviewing a conversion.
 
@@ -249,7 +292,10 @@ of the accepted requirement, not an optional footnote.
 
 ## R09 — User-selected checks and a bounded correction round
 
-During development Mother Codex proposes useful checks and identifies expensive
+This rule concerns the application's runtime output checks, not routine development
+tests or a mandatory code-review round. Do not reopen an accepted check list for an
+unrelated change. When defining or changing these product checks, Mother proposes
+useful checks and identifies expensive
 ones. The user may add/remove checks and approves the list. Implement that list at
 agreed milestones before stage completion. Routine successes may be quiet. Do not
 repeat checks after every incidental action or inspect every video frame by default.
@@ -423,13 +469,16 @@ views; no generic database-edit repair screen or additional support platform.
 
 ## R16 — Performance and caching without a team-capacity platform
 
-Use bounded concurrency for independent work. Choose async I/O for suitable network
+Use concurrency only when needed for the current behavior or a demonstrated performance
+need, and keep it bounded. This is not an instruction to launch parallel agents.
+Choose async I/O for suitable network
 clients, bounded threads for blocking SDK calls where appropriate and worker services
 for CPU/GPU-heavy work. Respect dependencies, provider limits, resources and authorized
 cost. Serialize conflicting desktop edits. Preserve partial results and safe retries.
 Measure benefits rather than promise a fixed speedup.
 
-Evaluate caching at every LLM API call site and enable valid supported reuse. Provider
+Consider caching at affected LLM API call sites when requested or justified by current
+cost or latency. Do not add a cache or audit all call sites by default. Provider
 prompt caching for stable prefixes/context is different from reusing a prior result.
 For result reuse, include relevant access scope, provider/model/settings, instruction
 versions, exact inputs/source revisions, tool context and output shape in the identity.
@@ -440,7 +489,7 @@ A cache does not supply approval, save unaccepted business inputs or bypass logi
 Do not cache failed/uncertain results as success. Avoid secret values in keys/logs;
 restrict cached data to authorized access. On a cache miss or unavailable cache,
 perform normal authorized work. Use existing infrastructure, considering cache cost
-and observed benefit. Briefly record why a call remains uncached when appropriate.
+and observed benefit. No per-call uncached justification report is required.
 The application does not claim control over Codex's own internal prompt caching.
 
 F23's extra team-wide allocation/fairness/batch-management platform is deferred for
@@ -463,6 +512,11 @@ selection and status when the user returns. Do not recreate every conversational
 step as forms or assume a "done" message proves a browser save.
 
 ## R18 — Development verification is developer-overridable
+
+Choose the smallest meaningful checks for the changed behavior and directly affected
+integration. Once they pass, stop testing unless relevant changes, failures or new
+evidence justify another check. No automatic audit, additional reviewer or exhaustive
+suite is required beyond explicit project checks and relevant security/data integrity.
 
 Use sample inputs and simulated provider responses when sufficient, as a guideline.
 The developer may choose real integrations and paid calls case by case, including
@@ -487,6 +541,9 @@ migrations. Existing projects, completed videos and unfinished runs must remain
 compatible through the release. Do not make application users choose versions or
 repair their runs after an update.
 
+Apply only the following items affected by this release. A documentation-only or
+isolated change does not require unrelated project playback, migration or catalog checks.
+
 1. Inspect affected persisted data, file references, stages, prompts, schemas,
    backend commands, child assumptions and integration defaults.
 2. Keep compatible behavior or prepare and apply targeted migration scripts in
@@ -497,8 +554,9 @@ repair their runs after an update.
    applicable procedure compatible or deliberately migrate the run and record it;
    merely pinning old instructions does not repair an incompatible new backend.
 4. Synchronize relevant API/model inventory without clobbering admin choices.
-5. Verify a representative completed project and unfinished run affected by the
-   change: access/playback, supported re-edit/resume, links, approvals and instructions.
+5. Where existing completed projects or unfinished runs are affected, verify a
+   representative example of each affected category, covering only relevant behavior:
+   access/playback, supported re-edit/resume, links, approvals or instructions.
    Use focused checks; do not inspect every media frame again.
 6. Resolve known incompatibilities before release. Do not silently downgrade older
    projects to read-only, rewrite accepted meaning or invent missing historical data.
@@ -530,9 +588,11 @@ The builder chooses fit-for-purpose technical implementations and verifies actua
 account/host capabilities without reopening settled policy. No hard-coded model list
 from the old discussion is a current availability guarantee.
 
-Deliver actual working source, appropriate migrations, server definitions, small
+Deliver only the artifacts needed for the requested scope: actual working source,
+appropriate migrations, server definitions, small
 child entry/connector package, supported setup instructions and a compact current
-implementation record. Say what was verified, simulated, unavailable or not deployed.
+implementation record where needed under Mother procedure section 3. Say what was
+verified, simulated, unavailable or not deployed.
 This framework is a reusable build specification; it has not itself
 installed tools, supplied credentials, provisioned databases or run a live application.
 
@@ -565,9 +625,10 @@ relevant rules rather than reconstructing decisions from memory.
 - If absent, ask for the requirements/source and target project location together.
   Useful chat requirements can supplement the file; do not block because a document
   is not literally named XYZ. Do not invent a domain workflow when none is supplied.
-- For conversion, inspect current UI, backend commands, data, auth, provider
+- For conversion, inspect affected current UI, backend commands, data, auth, provider
   integrations, instructions, storage and jobs. Identify retain/adapt/replace
-  decisions from evidence, preserving working features and data.
+  decisions from evidence, preserving working features and data. For a focused change,
+  inspect the relevant path and dependencies rather than conducting a whole-app audit.
 - Establish the first useful end-to-end workflow: inputs, outputs, stages,
   editable fields, approval actions, dependencies, required tools and expected
   result. Identify local versus server work and any unattended jobs.
@@ -580,17 +641,18 @@ to approve the entire framework again.
 
 ## 3. Establish a compact working specification and state record
 
-Use or update the project's existing specification and progress file. If none
-exists, create one compact APPLICATION-PLAN.md or HTML equivalent in the target
-project. It is not a new platform or a stack of documents.
+Use or update the project's existing specification and progress file. If none exists,
+create one compact APPLICATION-PLAN.md or HTML equivalent only when requested or needed
+for operating or resuming the build. A brief chat plan is otherwise sufficient.
+Record the loaded framework identity there, or in chat if no file is needed.
 
-Keep the following explicit:
+Keep the following explicit only where relevant to the current scope:
 
 - Framework version, app identity, project path, source inputs and current intent.
 - Confirmed functional decisions, open questions, and developer overrides.
 - Stage inputs/outputs, UI-versus-chat approval meaning, prerequisites and
   effects of upstream edits. Map Codex stages and specialist operations.
-- Foundation checklist with reuse/adapt/build/not-applicable status and reason.
+- Relevant foundation reuse/adapt/build/not-applicable decisions.
 - Current implementation state, tests actually run, known failures/limitations
   and the next concrete step. Separate planned, implemented and verified.
 - Release/instruction identity and relevant migrations when applicable.
@@ -616,6 +678,8 @@ Read the source/stack first. Then implement the minimum agreed common foundation
 Reuse suitable existing components. Do not add empty job tables, schedulers,
 universal workflow engines or extra pages merely because another app needed them.
 Read the application rules in this document for conditional requirements and exclusions.
+This foundation procedure applies to new builds and affected conversion work; it is
+not additional scope for every maintenance change.
 
 ## 5. Implement the real workflow through the same backend rules
 
@@ -631,7 +695,7 @@ stage algorithms and tool requirements as versioned server definitions. Develop
 the provider adapters and named commands needed for this application, not invented
 generic endpoints claimed to exist in every service.
 
-For every integration, define necessary inputs, executor location, model options
+For each integration added or changed, define necessary inputs, executor location, model options
 where relevant, secret reference, safe readiness method and error/recovery path.
 Synchronize relevant integration changes with the admin register in the same
 development change; do not overwrite admin selections with new builder defaults.
@@ -664,12 +728,25 @@ source administration tools or decision-history archive into the child package.
 Verify installation and login with an ordinary user's available permissions and
 tools, not only with the builder's elevated access.
 
+Include this lean-operation guidance in the child's entry instructions: carry out the
+requested workflow with the fewest sufficient actions; keep planning and help in chat;
+do not add unsolicited reports, features, review rounds, audits, parallel agents or
+speculative investigations. Separate optional suggestions from defects. Ask only for
+missing product decisions/input, necessary authorization or genuine blockers. Explain
+unexpected substantial work and its smallest sufficient response before expanding.
+Check actual saved outcomes and the directly affected result; reuse valid evidence and
+repeat checks only after relevant changes, failures or new evidence. Stop when the
+requested outcome, required checks and authorized delivery are complete. Preserve
+published stage procedures, approvals, exact inputs, security, data integrity and
+paid-action/retry controls. Do not interpret lean operation as permission to skip
+required checks, silently change accepted meaning or repair application source.
+
 ## 7. Verify useful behavior without repetitive checking
 
-Propose the small application-specific output-check list for the user's selection.
-Implement the approved automatic checks and one correction round, then stop and
-explain unresolved problems. Do not build a generic quality engine, inspect every
-frame or rerender media repeatedly by default.
+When the requested feature defines or changes runtime output checks, use R09 for
+the user's selection and bounded runtime correction behavior. That limit is not a
+one-attempt limit on ordinary development fixes. Do not reopen accepted checks or
+add a generic quality engine, full-frame inspection or repeated renders by default.
 
 Use focused development verification appropriate to actual changes: owner/admin
 read behavior, user-supplied-only business inputs, correct stage gating, saved
@@ -678,6 +755,9 @@ Include stable provider IDs/pagination where catalogs require them. Use existing
 tests and a few meaningful acceptance examples rather than implementation-mirroring
 test volume. Simulated versus real/paid tests are the developer's case-by-case
 choice; retain authorization already given and report what was actually verified.
+Run only checks relevant to changed behavior and directly affected integration.
+After they pass, stop; repeat only for relevant changes, failures or new evidence.
+Do not automatically add review rounds, audits or parallel agents.
 
 For local-only steps, verify those on a suitable local setup or state the remaining
 dependency. Never claim that a transcript validates the visuals of a video or
@@ -688,8 +768,9 @@ that an account catalog proves an unavailable model is usable.
 The mother-codebase owner owns backward compatibility and required migrations.
 Use R19 in this document as the release checklist. Keep the previous work recoverable, apply
 required migrations in the proper order during an authorized release, and align
-code, published procedures and admin integration inventory. Test an existing
-completed project and an unfinished run affected by the update. Do not give users
+code, published procedures and admin integration inventory where affected. Test a
+representative completed project or unfinished run only for each affected category
+as described in R19. Do not give users
 a version-selection or migration task to resolve a known builder incompatibility.
 
 Prepare concrete deployable work and operator setup; deploy or make paid/real-data
@@ -699,7 +780,7 @@ Do not create a new approval board or ask again for an already authorized action
 
 ## 9. Finish with a usable delivery and a resumable state
 
-Deliver the application source, needed migrations, published definitions, child
+Deliver only what the requested change needs: application source, needed migrations, published definitions, child
 package/install instructions, actual configuration examples without secrets, and
 a short operating note for startup, worker recovery, backups and 90-day cleanup
 where relevant. Keep the current state record updated.
@@ -709,3 +790,5 @@ and how the developer/operator starts. Do not claim that this instruction packag
 itself has already provisioned the database, installed connections or built an app.
 Keep ordinary operator help in conversation; save durable decisions in the agreed
 project record. Preserve the child/builder role separation on subsequent turns.
+Once the requested behavior, relevant verification and authorized delivery are complete,
+stop. Optional improvements and hypothetical future risks are not unfinished work.
