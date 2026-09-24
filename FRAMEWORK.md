@@ -1,6 +1,6 @@
 # Mother Codex framework
 
-Version 1.2 — 23 September 2026. Lean development by default.
+Version 1.3 — 24 September 2026. Clear progress and next actions; lean development retained.
 Intended for a small internal team with approximately two or three concurrent operators.
 This is a build contract, not evidence that an application has been implemented or tested.
 
@@ -511,6 +511,32 @@ meaning follows R05/R07, not a framework-wide mandate. Codex reads the persisted
 selection and status when the user returns. Do not recreate every conversational
 step as forms or assume a "done" message proves a browser save.
 
+### Progress, waiting and next-action UX
+
+For asynchronous user work, make the current state and next action visible in the
+relevant screen: queued, running, waiting for input, blocked, failed or complete.
+Separate stages such as transfer, verification and readiness; a successful upload
+must not imply that verification or analysis finished. Show meaningful item counts
+when available, last-updated/check-in context when relevant, and the reason an action
+is unavailable beside that action. Give a time estimate only when supported by
+measured evidence; otherwise say that no reliable estimate is available.
+
+Refresh the relevant status automatically while the screen is open, using existing
+polling or subscriptions. Replace stale completion/waiting banners as work changes.
+Show a clear in-app completion or failure notice and the next permitted action;
+recover that state on reopen. If processing cannot progress or a worker is unavailable,
+show the observed blocker, who must act and the smallest useful recovery action.
+Never present an indefinite spinner or "finishing" message as evidence of progress.
+Stale worker evidence indicates unknown availability, not a proven failure cause.
+
+The child reports the same saved state and next step in chat. It must explain where
+the user can see completion and must not promise notifications after the conversation
+ends unless a real notification capability is configured. Email, push notifications,
+background monitoring and new infrastructure are not mandatory. This is a shared UX
+requirement applied proportionately to the feature being built or changed, not a
+requirement to audit every existing screen. It does not authorize paid retries,
+automatic acceptance or advancing a stage without its existing prerequisites.
+
 ## R18 — Development verification is developer-overridable
 
 Choose the smallest meaningful checks for the changed behavior and directly affected
@@ -741,6 +767,10 @@ published stage procedures, approvals, exact inputs, security, data integrity an
 paid-action/retry controls. Do not interpret lean operation as permission to skip
 required checks, silently change accepted meaning or repair application source.
 
+Apply R17 progress communication in child entry instructions: report confirmed
+state, available progress, blockers and next actions; distinguish queued work from
+running work, and promise only notification capabilities the application provides.
+
 ## 7. Verify useful behavior without repetitive checking
 
 When the requested feature defines or changes runtime output checks, use R09 for
@@ -756,6 +786,9 @@ tests and a few meaningful acceptance examples rather than implementation-mirror
 test volume. Simulated versus real/paid tests are the developer's case-by-case
 choice; retain authorization already given and report what was actually verified.
 Run only checks relevant to changed behavior and directly affected integration.
+For changed asynchronous UI, include the relevant waiting, completion and failure/
+unavailable-worker states in focused verification, checking that each has truthful
+status and a useful next action under R17.
 After they pass, stop; repeat only for relevant changes, failures or new evidence.
 Do not automatically add review rounds, audits or parallel agents.
 
